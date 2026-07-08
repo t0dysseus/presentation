@@ -412,14 +412,14 @@ body {
 }
 
 .inception-frame {
-  flex: 1;
   border: 2px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
   position: relative;
   background: #fff;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  min-height: 0;
+  height: 670px; /* Erzwingt die volle Höhe nach unten */
+  width: 100%;
 }
 
 .inception-frame iframe {
