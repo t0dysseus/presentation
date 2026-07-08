@@ -2,6 +2,7 @@
    PRESENTATION.JS – Team Raum
    Reveal.js + Slide-Parallax + stilles Layer-Switching
    Pfeil hoch → leichte Sprache, Pfeil runter → Standard
+   + Inception: Live-Website im iframe auf Slide 9a
    ═══════════════════════════════════════════════════════════════ */
 
 // ── PARALLAX CONFIG ──────────────────────────────────────────
@@ -118,6 +119,10 @@ function renderContent() {
         </div>
       </div>`;
   }).join('');
+
+  // INCEPTION (Live-Website im iframe)
+  // Titel setzen – iframe wird nur einmal in Reveal.on('ready') geladen
+  document.getElementById('inception-title').textContent = D.inception.title;
 
   // INTERVENTIONS
   renderIntervention(1, D.intervention1);
@@ -258,6 +263,10 @@ helpOverlay.innerHTML = `
       <tr><td>Esc</td><td>Hilfe / Übersicht schließen</td></tr>
       <tr><td>Home / End</td><td>Erste / Letzte Folie</td></tr>
     </table>
+    <p style="font-size:14px;color:var(--muted);margin-top:20px;line-height:1.5;">
+      Auf der Live-Demo-Folie: In die Website klicken zum Ausprobieren.
+      Außerhalb klicken, um zur Präsentation zurückzukehren.
+    </p>
   </div>`;
 document.body.appendChild(helpOverlay);
 
@@ -295,6 +304,13 @@ Reveal.on('ready', () => {
   const current = Reveal.getIndices().h + 1;
   updateProgress(current, total);
   updateParallax(0);
+
+  // PRELOAD: iframe sofort laden (unsichtbar), damit er bei Folie 9 fertig geladen ist
+  var iframe = document.getElementById('inception-iframe');
+  if (iframe && !iframe.getAttribute('data-loaded')) {
+    iframe.src = D.inception.url;
+    iframe.setAttribute('data-loaded', 'true');
+  }
 });
 
 Reveal.on('slidechanged', (event) => {
@@ -302,4 +318,13 @@ Reveal.on('slidechanged', (event) => {
   const current = event.indexh + 1;
   updateProgress(current, total);
   updateParallax(event.indexh);
+
+  // Wenn wir die Inception-Folie verlassen: iframe-Fokus entfernen
+  // damit Tastatur wieder an Reveal.js geht
+  var iframe = document.getElementById('inception-iframe');
+  if (iframe && !event.currentSlide.classList.contains('slide-inception')) {
+    if (document.activeElement === iframe) {
+      iframe.blur();
+    }
+  }
 });

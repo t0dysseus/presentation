@@ -106,6 +106,15 @@ const PRESENTATION_DATA_SIMPLE = {
     ]
   },
 
+  // ── LIVE-DEMO (INCEPTION) ──────────────────────────────────
+  // Hier wird die Website in der Praesentation eingebettet.
+  // url: Die Adresse eurer Website.
+  // title: Ueberschrift auf der Folie.
+  inception: {
+    title: "Kurzuebersicht aller Interventionen",
+    url: "https://hierrosa.github.io/hierrosa.github.io.-/"
+  },
+
   // ── INTERVENTION 1 ─────────────────────────────────────────
   intervention1: {
     number: 1,

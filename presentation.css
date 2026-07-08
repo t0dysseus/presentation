@@ -397,6 +397,38 @@ body {
 .status[data-status="abgeschlossen"]::before { background: var(--status-done); }
 .status[data-status="wird nicht umgesetzt"]::before { background: var(--status-stop); }
 
+/* ── SLIDE: INCEPTION (Live Website im iframe) ────────────── */
+.slide-inception .slide-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+.slide-inception h2 {
+  font-size: 36px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.inception-frame {
+  flex: 1;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  min-height: 0;
+}
+
+.inception-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
 /* ── SLIDE: INTERVENTION INTRO ───────────────────────────── */
 .slide-intervention-intro .slide-content {
   display: flex;
@@ -634,7 +666,7 @@ body {
 }
 
 .conclusion-statement {
-  font-family: 'IBM Plex Sans', sans-serif;
+  f font-family: 'IBM Plex Sans', sans-serif;
   font-size: 36px;
   font-style: italic;
   line-height: 1.4;
