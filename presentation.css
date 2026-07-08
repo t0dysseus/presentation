@@ -156,7 +156,7 @@ body {
 }
 
 .slide-section .section-number {
-  font-family: 'IBM Plex Serif', serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 120px;
   font-weight: 400;
   font-style: italic;
@@ -203,7 +203,7 @@ body {
 }
 
 .quote-text {
-  font-family: 'IBM Plex Serif', serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 42px;
   font-style: italic;
   line-height: 1.4;
@@ -267,7 +267,7 @@ body {
 }
 
 .hypothesis-card .hypo-number {
-  font-family: 'IBM Plex Serif', serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 64px;
   font-weight: 600;
   font-style: italic;
@@ -406,7 +406,7 @@ body {
 }
 
 .intervention-badge {
-  font-family: 'IBM Plex Serif', serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 80px;
   font-weight: 600;
   font-style: italic;
@@ -441,7 +441,7 @@ body {
 }
 
 .hypothesis-text {
-  font-family: 'IBM Plex Serif', serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 36px;
   font-style: italic;
   line-height: 1.4;
@@ -599,7 +599,7 @@ body {
 }
 
 .phase-card .phase-number {
-  font-family: 'IBM Plex Serif', serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 48px;
   font-weight: 600;
   font-style: italic;
@@ -634,7 +634,7 @@ body {
 }
 
 .conclusion-statement {
-  font-family: 'IBM Plex Serif', serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 36px;
   font-style: italic;
   line-height: 1.4;
@@ -690,7 +690,7 @@ body {
 }
 
 .closing-thanks {
-  font-family: 'IBM Plex Serif', serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 42px;
   font-style: italic;
   color: var(--text);
