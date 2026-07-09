@@ -125,6 +125,35 @@ const PRESENTATION_DATA = {
     url: "https://hierrosa.github.io/hierrosa.github.io.-/"
   },
 
+  example1: {
+    number: "01",
+    title: "Intervention 1",
+    text: "<ul><li>Erste Erkenntnis aus der Recherche</li><li>Zweiter wichtiger Punkt</li><li>Dritter Aspekt der Intervention</li><li>Vierter Gedanke zur Umsetzung</li></ul>",
+    media: "images/beispiel1.jpg",
+    thumbs: ["images/thumb1a.jpg", "images/thumb1b.jpg"]
+},
+example2: {
+    number: "01",
+    title: "Intervention 1",
+    text: "<ul><li>Analyse der Ausgangslage</li><li>Identifikation der Hebel</li><li>Erste Modellierung</li></ul>",
+    media: "images/beispiel2.jpg",
+    thumbs: ["images/thumb2a.jpg", "images/thumb2b.jpg", "images/thumb2c.jpg"]
+},
+example3: {
+    number: "01",
+    title: "Intervention 1",
+    text: "<ul><li>Kontext der Intervention</li><li>Beteiligte Akteure</li><li>Zeitlicher Rahmen</li><li>Räumliche Gegebenheiten</li></ul>",
+    media: "images/beispiel3.jpg",
+    thumbs: ["images/thumb3a.jpg"]
+},
+example4: {
+    number: "01",
+    title: "Intervention 1",
+    text: "<ul><li>Problemstellung</li><li>Forschungslücke</li><li>Zielsetzung</li></ul>",
+    text2: "<ul><li>Methode A</li><li>Methode B</li><li>Methode C</li></ul>",
+    boxes: ["Ergebnis 1", "Ergebnis 2", "Ergebnis 3"]
+},
+
   // ── INTERVENTION 1 ─────────────────────────────────────────
   intervention1: {
     number: 1,
