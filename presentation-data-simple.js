@@ -107,9 +107,6 @@ const PRESENTATION_DATA_SIMPLE = {
   },
 
   // ── LIVE-DEMO (INCEPTION) ──────────────────────────────────
-  // Hier wird die Website in der Praesentation eingebettet.
-  // url: Die Adresse eurer Website.
-  // title: Ueberschrift auf der Folie.
   inception: {
     title: "Kurzuebersicht aller Interventionen",
     url: "https://hierrosa.github.io/hierrosa.github.io.-/"
@@ -224,7 +221,22 @@ const PRESENTATION_DATA_SIMPLE = {
     ],
     thanks: "La Forza e forte nella mia famiglia.",
     contact: "Team Raum – SS2026 – BHT"
-  }
+  },
+
+  // ═══════════════════════════════════════════════════════════
+  // NEU: VIDEO PLAYER (Folie 27) - LEICHTE SPRACHE
+  // ═══════════════════════════════════════════════════════════
+  video: null,  // ← HIER DEIN VIDEO EINFÜGEN
+
+  // ═══════════════════════════════════════════════════════════
+  // NEU: BILDERGALERIE (Folie 28) - LEICHTE SPRACHE
+  // ═══════════════════════════════════════════════════════════
+  gallery: null,  // ← HIER DEINE BILDER EINFÜGEN
+
+  // ═══════════════════════════════════════════════════════════
+  // NEU: 3D MODELL VIEWER (Folie 29) - LEICHTE SPRACHE
+  // ═══════════════════════════════════════════════════════════
+  model3d: null  // ← HIER DEIN 3D-MODELL EINFÜGEN
 
 };
 

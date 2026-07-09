@@ -265,6 +265,97 @@
         </div>
       </section>
 
+      <!-- ═══════════════════════════════════════════════════════════════
+           NEU: 27 – MP4 VIDEO PLAYER
+           So nutzt du es:
+           1. Lade dein Video hoch (z.B. videos/mein-video.mp4)
+           2. Trage den Pfad in presentation-data.js ein
+           3. Optional: poster = Bild für vor dem Abspielen
+      ═══════════════════════════════════════════════════════════════ -->
+      <section class="slide-media-video">
+        <div class="slide-content">
+          <h2 id="video-title"></h2>
+          <!-- 
+            HIER IST DAS VIDEO:
+            - controls = zeigt Play/Pause/Volume-Leiste
+            - preload = lädt Video vor (metadata = nur Info laden)
+            - poster = Vorschaubild (optional, aber empfohlen)
+          -->
+          <div class="video-container">
+            <video id="video-player" controls preload="metadata">
+              <!-- 
+                HIER DEN PFAD ZU DEINEM VIDEO EINTRAGEN!
+                Ersetze "videos/dein-video.mp4" durch deinen echten Pfad.
+                Beispiel: "videos/produktfilm.mp4" oder "https://example.com/video.mp4"
+              -->
+              <source id="video-source" src="" type="video/mp4">
+              Dein Browser unterstützt keine Videos. Bitte aktualisiere Chrome/Firefox.
+            </video>
+          </div>
+          <!-- Optionaler Untertitel/Beschreibung unter dem Video -->
+          <p class="video-caption" id="video-caption"></p>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════════════
+           NEU: 28 – BILDERGALERIE (JPG)
+           So nutzt du es:
+           1. Lade deine Bilder hoch (z.B. images/galerie/)
+           2. Trage die Pfade in presentation-data.js ein
+           3. Klicken auf Bild = Vollbildansicht
+      ═══════════════════════════════════════════════════════════════ -->
+      <section class="slide-media-gallery">
+        <div class="slide-content">
+          <h2 id="gallery-title"></h2>
+          <!-- 
+            BILDERGALERIE:
+            - Die Bilder werden hier automatisch eingefügt
+            - Klicken auf ein Bild öffnet die Vollbildansicht
+            - Navigation: Pfeiltasten oder Klick auf ←/→
+          -->
+          <div class="gallery-grid" id="gallery-grid"></div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════════════
+           NEU: 29 – 3D OBJEKT VIEWER (Three.js)
+           So nutzt du es:
+           1. Lade dein 3D-Modell hoch (z.B. models/mein-modell.glb)
+           2. Trage den Pfad in presentation-data.js ein
+           3. Unterstützte Formate: .glb, .gltf (empfohlen), .obj
+           4. Maus: Linksklick = drehen, Scroll = zoom, Rechtsklick = schieben
+      ═══════════════════════════════════════════════════════════════ -->
+      <section class="slide-media-3d">
+        <div class="slide-content">
+          <h2 id="model3d-title"></h2>
+          <!-- 
+            3D VIEWER (Three.js):
+            - Zeigt dein 3D-Modell interaktiv an
+            - GLB/GLTF sind die besten Formate (klein, komprimiert)
+            - Kannst auch Farbe/Hintergrund anpassen
+          -->
+          <div class="model3d-container" id="model3d-container">
+            <!-- Three.js Canvas wird hier eingefügt -->
+            <div id="model3d-canvas"></div>
+            <!-- Lade-Indikator -->
+            <div class="model3d-loading" id="model3d-loading">
+              <div class="loading-spinner"></div>
+              <p>3D-Modell wird geladen...</p>
+            </div>
+          </div>
+          <p class="model3d-caption" id="model3d-caption"></p>
+        </div>
+      </section>
+
+      <!-- VOLLBLICK-MODAL für Galerie -->
+      <div class="gallery-modal" id="gallery-modal">
+        <span class="gallery-modal-close" id="gallery-modal-close">×</span>
+        <span class="gallery-modal-prev" id="gallery-modal-prev">←</span>
+        <img class="gallery-modal-img" id="gallery-modal-img" src="" alt="">
+        <span class="gallery-modal-next" id="gallery-modal-next">→</span>
+        <div class="gallery-modal-counter" id="gallery-modal-counter"></div>
+      </div>
+
     </div>
   </div>
 
@@ -284,6 +375,11 @@
   </div>
 
   <!-- SCRIPTS -->
+  <!-- Three.js für 3D-Modelle (muss VOR presentation.js geladen werden!) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <!-- GLTF Loader für .glb/.gltf Dateien -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
   <script src="presentation-data.js"></script>
   <script src="presentation-data-simple.js"></script>
