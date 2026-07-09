@@ -1303,7 +1303,7 @@ body {
   flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+   grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 20px;
   min-height: 0;
 }
@@ -1317,6 +1317,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 0;
+     
 }
 
 .dannenmann-grid-2x2 .dannenmann-cell img,
@@ -1330,6 +1331,21 @@ body {
 .dannenmann-grid-2x2 .dannenmann-cell img[src=""],
 .dannenmann-grid-2x2 .dannenmann-cell model-viewer[src=""] {
   display: none;
+}
+
+.dannenmann-cell img[src=""],
+.dannenmann-cell model-viewer[src=""],
+.dannenmann-cell video[src=""] {
+  display: none !important;
+}
+
+.dannenmann-cell img:not([src=""]),
+.dannenmann-cell model-viewer:not([src=""]),
+.dannenmann-cell video:not([src=""]) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* ── DANNENMANN 3: Bilder oben, Text unten ── */
