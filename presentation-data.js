@@ -164,7 +164,7 @@ dannenmann1: {
 dannenmann2: {
     title: "Dannenmann",
     image: "",
-    models: ["", "", ""]
+    models: ["models/original.glb", "models/cut.glb", ""]
 },
 dannenmann3: {
     title: "Dannenmann",
