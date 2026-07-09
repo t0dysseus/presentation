@@ -565,7 +565,31 @@ Reveal.on('ready', () => {
             if (D.example4.boxes[2]) document.getElementById('ex4-box3').textContent = D.example4.boxes[2];
         }
     }
-
+    // ═══════════════════════════════════════════════════════
+    // DANNENMANN-FOLIEN
+    // ═══════════════════════════════════════════════════════
+    if (D.dannenmann1) {
+        document.getElementById('dannenmann1-title').textContent = D.dannenmann1.title;
+        document.getElementById('dannenmann1-content').innerHTML = D.dannenmann1.content;
+    }
+    if (D.dannenmann2) {
+        document.getElementById('dannenmann2-title').textContent = D.dannenmann2.title;
+        if (D.dannenmann2.image) document.getElementById('dannenmann2-img').src = D.dannenmann2.image;
+        if (D.dannenmann2.models) {
+            if (D.dannenmann2.models[0]) document.getElementById('dannenmann2-model1').src = D.dannenmann2.models[0];
+            if (D.dannenmann2.models[1]) document.getElementById('dannenmann2-model2').src = D.dannenmann2.models[1];
+            if (D.dannenmann2.models[2]) document.getElementById('dannenmann2-model3').src = D.dannenmann2.models[2];
+        }
+    }
+    if (D.dannenmann3) {
+        document.getElementById('dannenmann3-title').textContent = D.dannenmann3.title;
+        if (D.dannenmann3.images) {
+            if (D.dannenmann3.images[0]) document.getElementById('dannenmann3-img1').src = D.dannenmann3.images[0];
+            if (D.dannenmann3.images[1]) document.getElementById('dannenmann3-img2').src = D.dannenmann3.images[1];
+            if (D.dannenmann3.images[2]) document.getElementById('dannenmann3-img3').src = D.dannenmann3.images[2];
+        }
+        if (D.dannenmann3.text) document.getElementById('dannenmann3-text').innerHTML = D.dannenmann3.text;
+    }
 Reveal.on('slidechanged', (event) => {
   const total = Reveal.getTotalSlides();
   const current = event.indexh + 1;
