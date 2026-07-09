@@ -1300,25 +1300,23 @@ body {
 
 /* ── DANNENMANN 2: 2×2 Grid ── */
 .dannenmann-grid-2x2 {
-  flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-   grid-template-rows: repeat(2, minmax(0, 1fr));
+  grid-template-rows: 300px 300px;  /* ← war 340px – etwas kleiner */
   gap: 20px;
-  min-height: 0;
-   max-height: 62vh;
+  margin-top: 20px;
+  margin-bottom: 100px;             /* ← war 40px – deutlich mehr */
 }
 
 .dannenmann-grid-2x2 .dannenmann-cell {
-  background: var(--bg-soft);
+  background: #ec7d23;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 0;
-     
+  height: 300px;                  /* ← an grid-template-rows anpassen */
 }
 
 .dannenmann-grid-2x2 .dannenmann-cell img,
@@ -1353,9 +1351,9 @@ body {
 .dannenmann-images-row {
   display: flex;
   gap: 16px;
-  margin-bottom: 28px;
-  height: 200px;
-  flex-shrink: 0;
+  margin-bottom: 24px;
+  height: 340px;        /* einfach höher */
+  padding: 0;           /* kein innerer Rand nötig */
 }
 
 .dannenmann-images-row img {
