@@ -58,6 +58,18 @@ body {
   transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+/* ── INDIVIDUELLE SHAPE-ANPASSUNGEN (Feedback) ────────────── */
+
+/* Orange Form oben links → weiter nach oben links weg */
+.shape-3 {
+  transform: translate(-60px, -50px);
+}
+
+/* Dunkelblaue Form oben → weiter nach oben weg */
+.shape-4 {
+  transform: translate(0, -60px);
+}
+
 /* ── REVEAL BASE ──────────────────────────────────────────── */
 .reveal {
   background: transparent !important;
