@@ -121,7 +121,6 @@ function renderContent() {
   }).join('');
 
   // INCEPTION (Live-Website im iframe)
-  // Titel setzen – iframe wird nur einmal in Reveal.on('ready') geladen
   document.getElementById('inception-title').textContent = D.inception.title;
 
   // INTERVENTIONS
@@ -162,7 +161,13 @@ function renderContent() {
   document.getElementById('outlook-contact').textContent = D.outlook.contact;
 
   // MODEL VIEWER
-renderModelViewer();
+  renderModelViewer();
+
+  // VIDEO PLAYER
+  renderVideo();
+
+  // GALLERY
+  renderGallery();
 
 }
 
@@ -256,9 +261,137 @@ function renderModelViewer(){
 
 }
 
+// ─────────────────────────────────────────────
+// VIDEO PLAYER
+// ─────────────────────────────────────────────
+
+function renderVideo() {
+
+  if (!D.video) return;
+
+  document.getElementById("video-title").textContent = D.video.title;
+  document.getElementById("video-description").textContent = D.video.description || "";
+
+  var player = document.getElementById("video-player");
+  player.src = D.video.src;
+
+  if (D.video.poster) {
+    player.poster = D.video.poster;
+  }
+
+}
+
+// ─────────────────────────────────────────────
+// BILDER-GALERIE (NEU)
+// Genau das gleiche Muster wie renderModelViewer()
+// ─────────────────────────────────────────────
+
+// Variable: welches Bild ist gerade in der Lightbox offen
+var galleryCurrentIndex = 0;
+
+function renderGallery() {
+
+  // Wenn keine Galerie-Daten vorhanden sind: nichts machen
+  if (!D.gallery) return;
+
+  // Überschrift aus presentation-data.js holen und einfügen
+  document.getElementById("gallery-title").textContent = D.gallery.title;
+
+  // Beschreibungstext aus presentation-data.js holen und einfügen
+  document.getElementById("gallery-description").textContent = D.gallery.description || "";
+
+  // Das Raster (Grid) aus dem HTML holen
+  var grid = document.getElementById("gallery-grid");
+
+  // Raster leeren (falls schon Bilder drin waren)
+  grid.innerHTML = "";
+
+  // Für jedes Bild in der Liste: ein Bild-Element erstellen
+  D.gallery.images.forEach(function(image, index) {
+
+    // Ein <div> mit der Klasse "gallery-item" erstellen
+    var item = document.createElement("div");
+    item.className = "gallery-item";
+
+    // Ein <img> Tag erstellen
+    var img = document.createElement("img");
+    img.src = image.src;           // Pfad zum Bild
+    img.alt = image.alt || "";     // Alternativtext (für Barrierefreiheit)
+    img.loading = "lazy";          // Bild lädt erst wenn es sichtbar wird
+
+    // Beim Klick auf das Bild: Lightbox öffnen
+    img.onclick = function() {
+      openLightbox(index);
+    };
+
+    // Bild in das Item einfügen
+    item.appendChild(img);
+
+    // Item in das Raster einfügen
+    grid.appendChild(item);
+
+  });
+
+}
+
+// ─────────────────────────────────────────────
+// LIGHTBOX (Vollbild-Ansicht)
+// ─────────────────────────────────────────────
+
+// Diese Funktion öffnet die Lightbox mit einem bestimmten Bild
+function openLightbox(index) {
+
+  galleryCurrentIndex = index;
+
+  // Das Lightbox-Element holen
+  var lightbox = document.getElementById("gallery-lightbox");
+
+  // Das Bild in der Lightbox holen
+  var lightboxImg = document.getElementById("gallery-lightbox-img");
+
+  // Das richtige Bild setzen
+  lightboxImg.src = D.gallery.images[index].src;
+  lightboxImg.alt = D.gallery.images[index].alt || "";
+
+  // Lightbox sichtbar machen
+  lightbox.classList.add("active");
+
+}
+
+// Diese Funktion schließt die Lightbox
+function closeLightbox() {
+  document.getElementById("gallery-lightbox").classList.remove("active");
+}
+
+// Diese Funktion geht zum nächsten Bild
+function nextLightbox() {
+
+  // Index um 1 erhöhen
+  // Wenn wir am Ende sind: wieder von vorne beginnen
+  galleryCurrentIndex = (galleryCurrentIndex + 1) % D.gallery.images.length;
+
+  // Neues Bild laden
+  var lightboxImg = document.getElementById("gallery-lightbox-img");
+  lightboxImg.src = D.gallery.images[galleryCurrentIndex].src;
+  lightboxImg.alt = D.gallery.images[galleryCurrentIndex].alt || "";
+
+}
+
+// Diese Funktion geht zum vorherigen Bild
+function prevLightbox() {
+
+  // Index um 1 verringern
+  // Wenn wir am Anfang sind: zum letzten Bild springen
+  galleryCurrentIndex = (galleryCurrentIndex - 1 + D.gallery.images.length) % D.gallery.images.length;
+
+  // Neues Bild laden
+  var lightboxImg = document.getElementById("gallery-lightbox-img");
+  lightboxImg.src = D.gallery.images[galleryCurrentIndex].src;
+  lightboxImg.alt = D.gallery.images[galleryCurrentIndex].alt || "";
+
+}
+
 // ── STILLES LAYER-SWITCHING ────────────────────────────────
-// Pfeil hoch → leichte Sprache, Pfeil runter → Standard
-// Kein Indikator, keine Buttons, kein Text auf Folien.
 function switchLayer(layer) {
   if (layer === currentLayer) return;
   if (layer === 'simple' && typeof PRESENTATION_DATA_SIMPLE === 'undefined') return;
@@ -266,7 +399,6 @@ function switchLayer(layer) {
   currentLayer = layer;
   D = (layer === 'simple') ? PRESENTATION_DATA_SIMPLE : PRESENTATION_DATA;
 
-  // Kurzer Fade, dann neu rendern
   const reveal = document.querySelector('.reveal');
   reveal.style.opacity = '0.3';
   reveal.style.transition = 'opacity 0.15s ease';
@@ -336,6 +468,29 @@ helpOverlay.addEventListener('click', (e) => {
 
 // ── KEYBOARD (Capture-Phase, vor Reveal.js!) ─────────────────
 document.addEventListener('keydown', (e) => {
+  // Wenn die Lightbox offen ist: Pfeiltasten für Galerie, ESC zum Schließen
+  var lightbox = document.getElementById("gallery-lightbox");
+  if (lightbox && lightbox.classList.contains("active")) {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      e.stopPropagation();
+      closeLightbox();
+      return;
+    }
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      e.stopPropagation();
+      nextLightbox();
+      return;
+    }
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      e.stopPropagation();
+      prevLightbox();
+      return;
+    }
+  }
+
   // Pfeil hoch/runter: Layer wechseln, NICHT an Reveal.js weitergeben
   if (e.key === 'ArrowUp') {
     e.preventDefault();
@@ -365,7 +520,6 @@ Reveal.on('ready', () => {
   updateProgress(current, total);
   updateParallax(0);
 
-  // PRELOAD: iframe sofort laden (unsichtbar), damit er bei Folie 9 fertig geladen ist
   var iframe = document.getElementById('inception-iframe');
   if (iframe && !iframe.getAttribute('data-loaded')) {
     iframe.src = D.inception.url;
@@ -379,8 +533,6 @@ Reveal.on('slidechanged', (event) => {
   updateProgress(current, total);
   updateParallax(event.indexh);
 
-  // Wenn wir die Inception-Folie verlassen: iframe-Fokus entfernen
-  // damit Tastatur wieder an Reveal.js geht
   var iframe = document.getElementById('inception-iframe');
   if (iframe && !event.currentSlide.classList.contains('slide-inception')) {
     if (document.activeElement === iframe) {

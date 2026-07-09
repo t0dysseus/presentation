@@ -418,7 +418,7 @@ body {
   position: relative;
   background: #fff;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  height: 670px; /* Erzwingt die volle Höhe nach unten */
+  height: 670px;
   width: 100%;
 }
 
@@ -922,4 +922,183 @@ body {
 
 .model-buttons button.active{
     background:var(--hero-orange);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SLIDE: VIDEO-PLAYER
+   ═══════════════════════════════════════════════════════════════ */
+
+.slide-video .slide-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.slide-video h2 {
+  margin-bottom: 8px;
+}
+
+#video-description {
+  margin-bottom: 20px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+#video-player {
+  width: 100%;
+  height: 560px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #000;
+  overflow: hidden;
+}
+
+#video-player:error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-soft);
+  color: var(--muted);
+  font-size: 18px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SLIDE: BILDER-GALERIE (NEU)
+   Genau das gleiche Muster wie slide-3d / slide-video
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Die Galerie-Folie nimmt die volle Höhe ein */
+.slide-gallery .slide-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Abstand zwischen Überschrift und Galerie */
+.slide-gallery h2 {
+  margin-bottom: 8px;
+}
+
+/* Beschreibungstext unter der Überschrift */
+#gallery-description {
+  margin-bottom: 20px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+/* Das Raster für die Bilder */
+/* auto-fill = so viele Spalten wie möglich */
+/* minmax(200px, 1fr) = mindestens 200px breit, sonst gleichmäßig */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Jedes einzelne Bild in der Galerie */
+.gallery-item {
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+  transition: 0.3s ease;
+}
+
+/* Hover-Effekt: Bild wird etwas größer */
+.gallery-item:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* Das Bild selbst */
+.gallery-item img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   LIGHTBOX (Vollbild-Ansicht beim Klick auf ein Bild)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Der dunkle Hintergrund der Lightbox */
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wenn die Lightbox aktiv ist */
+.gallery-lightbox.active {
+  display: flex;
+}
+
+/* Das große Bild in der Lightbox */
+.gallery-lightbox img {
+  max-width: 90%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Der Schließen-Button (×) */
+.gallery-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+}
+
+.gallery-lightbox-close:hover {
+  color: var(--hero-orange);
+}
+
+/* Der Zurück-Button (←) */
+.gallery-lightbox-prev {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 48px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+}
+
+.gallery-lightbox-prev:hover {
+  color: var(--hero-orange);
+}
+
+/* Der Weiter-Button (→) */
+.gallery-lightbox-next {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 48px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+}
+
+.gallery-lightbox-next:hover {
+  color: var(--hero-orange);
 }

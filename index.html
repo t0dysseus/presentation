@@ -16,12 +16,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
 
 
-  
+
   <!-- Unser CSS -->
   <link rel="stylesheet" href="presentation.css">
 
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js"></script>
 
+
+  
 </head>
 <body>
 
@@ -282,6 +284,39 @@
   </div>
 </section>
 
+      <!-- 25b: VIDEO-PLAYER -->
+      <section class="slide-video">
+        <div class="slide-content">
+
+          <h2 id="video-title"></h2>
+
+          <p id="video-description"></p>
+
+          <video id="video-player" controls></video>
+
+        </div>
+      </section>
+
+      <!-- 25c: BILDER-GALERIE (NEU) -->
+      <!-- ============================================ -->
+      <!-- NEU: Galerie-Folie                           -->
+      <!-- Genau das gleiche Muster wie slide-3d/video  -->
+      <!-- ============================================ -->
+      <section class="slide-gallery">
+        <div class="slide-content">
+
+          <!-- Überschrift (wird aus presentation-data.js gefüllt) -->
+          <h2 id="gallery-title"></h2>
+
+          <!-- Beschreibungstext unter der Überschrift -->
+          <p id="gallery-description"></p>
+
+          <!-- Hier werden die Bilder automatisch eingefügt -->
+          <div id="gallery-grid" class="gallery-grid"></div>
+
+        </div>
+      </section>
+
       <!-- 26: AUSBLICK -->
       <section class="slide-closing">
         <div class="slide-content">
@@ -295,7 +330,7 @@
     </div>
   </div>
 
-  <!-- NAVIGATION UI – nur Pfeile, Übersicht, Vollbild. KEINE Layer-Buttons. -->
+  <!-- NAVIGATION UI -->
   <div class="nav-ui">
     <div class="progress-bar">
       <div class="progress-fill" id="progress-fill"></div>
@@ -308,6 +343,15 @@
       <button class="nav-btn" id="overview-btn" title="Übersicht (O)">⊞</button>
       <button class="nav-btn" id="fullscreen-btn" title="Vollbild (F)">⛶</button>
     </div>
+  </div>
+
+  <!-- LIGHTBOX (Vollbild-Bildansicht) -->
+  <!-- Wird per JavaScript eingeblendet wenn man auf ein Galerie-Bild klickt -->
+  <div id="gallery-lightbox" class="gallery-lightbox">
+    <div class="gallery-lightbox-close" onclick="closeLightbox()">&times;</div>
+    <div class="gallery-lightbox-prev" onclick="prevLightbox()">&#8592;</div>
+    <img id="gallery-lightbox-img" src="" alt="">
+    <div class="gallery-lightbox-next" onclick="nextLightbox()">&#8594;</div>
   </div>
 
   <!-- SCRIPTS -->

@@ -120,9 +120,6 @@ const PRESENTATION_DATA = {
   },
 
   // ── LIVE-DEMO (INCEPTION) ──────────────────────────────────
-  // Hier wird die Website in der Präsentation eingebettet.
-  // url: Die Adresse eurer Website.
-  // title: Überschrift auf der Folie.
   inception: {
     title: "Kurzübersicht aller Interventionen",
     url: "https://hierrosa.github.io/hierrosa.github.io.-/"
@@ -227,32 +224,58 @@ const PRESENTATION_DATA = {
     ]
   },
 
-// ── 3D MODEL VIEWER ─────────────────────────────────────────
-modelViewer: {
-  title: "3D-Modelle",
+  // ── 3D MODEL VIEWER ─────────────────────────────────────────
+  modelViewer: {
+    title: "3D-Modelle",
 
-  models: [
+    models: [
 
-      {
-          name: "Modell 1",
-          file: "models/original.glb",
-          description: "Beschreibung des ersten Modells."
-      },
+        {
+            name: "Modell 1",
+            file: "models/original.glb",
+            description: "Beschreibung des ersten Modells."
+        },
 
-      {
-          name: "Modell 2",
-          file: "models/modell2.glb",
-          description: "Beschreibung des zweiten Modells."
-      },
+        {
+            name: "Modell 2",
+            file: "models/modell2.glb",
+            description: "Beschreibung des zweiten Modells."
+        },
 
-      {
-          name: "Modell 3",
-          file: "models/modell3.glb",
-          description: "Beschreibung des dritten Modells."
-      }
+        {
+            name: "Modell 3",
+            file: "models/modell3.glb",
+            description: "Beschreibung des dritten Modells."
+        }
 
-  ]
-},
+    ]
+  },
+
+  // ── VIDEO PLAYER ───────────────────────────────────────────
+  video: {
+    title: "Video",
+    src: "videos/test.mp4",
+    description: "Beschreibung des Videos.",
+    poster: ""
+  },
+
+  // ── BILDER-GALERIE (NEU) ────────────────────────────────────
+  // So trägst du deine Bilder ein:
+  //   title:       Überschrift auf der Folie
+  //   description: Text unter der Überschrift
+  //   images:      Liste von Bildern
+  //     src: Pfad zum Bild (z.B. "images/galerie/foto1.jpg")
+  //     alt: Beschreibungstext (für Barrierefreiheit)
+  gallery: {
+    title: "Bildergalerie",
+    description: "Klicke auf ein Bild für die Großansicht.",
+    images: [
+      { src: "images/galerie/bild1.jpg", alt: "Beschreibung 1" },
+      { src: "images/galerie/bild2.jpg", alt: "Beschreibung 2" },
+      { src: "images/galerie/bild3.jpg", alt: "Beschreibung 3" },
+      { src: "images/galerie/bild4.jpg", alt: "Beschreibung 4" }
+    ]
+  },
 
   // ── AUSBLICK ───────────────────────────────────────────────
   outlook: {

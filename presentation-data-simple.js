@@ -214,32 +214,55 @@ const PRESENTATION_DATA_SIMPLE = {
     ]
   },
 
-// ── 3D MODEL VIEWER ─────────────────────────────────────────
-modelViewer: {
-  title: "3D-Modelle",
+  // ── 3D MODEL VIEWER ─────────────────────────────────────────
+  modelViewer: {
+    title: "3D-Modelle",
 
-  models: [
+    models: [
 
-      {
-          name: "Modell 1",
-          file: "models/original.glb",
-          description: "Beschreibung des ersten Modells."
-      },
+        {
+            name: "Modell 1",
+            file: "models/original.glb",
+            description: "Beschreibung des ersten Modells."
+        },
 
-      {
-          name: "Modell 2",
-          file: "models/modell2.glb",
-          description: "Beschreibung des zweiten Modells."
-      },
+        {
+            name: "Modell 2",
+            file: "models/modell2.glb",
+            description: "Beschreibung des zweiten Modells."
+        },
 
-      {
-          name: "Modell 3",
-          file: "models/modell3.glb",
-          description: "Beschreibung des dritten Modells."
-      }
+        {
+            name: "Modell 3",
+            file: "models/modell3.glb",
+            description: "Beschreibung des dritten Modells."
+        }
 
-  ]
-},
+    ]
+  },
+
+  // ── VIDEO PLAYER (NEU) ─────────────────────────────────────
+  // Gleiche Struktur wie in presentation-data.js
+  // Nur die Texte koennen hier in leichter Sprache stehen
+  video: {
+    title: "Video",
+    src: "videos/test.mp4",
+    description: "Beschreibung des Videos.",
+    poster: ""
+  },
+
+  // ── BILDER-GALERIE (NEU) ────────────────────────────────────
+  // Gleiche Struktur wie in presentation-data.js
+  gallery: {
+    title: "Bildergalerie",
+    description: "Klicke auf ein Bild fuer die Grossansicht.",
+    images: [
+      { src: "images/galerie/bild1.jpg", alt: "Beschreibung 1" },
+      { src: "images/galerie/bild2.jpg", alt: "Beschreibung 2" },
+      { src: "images/galerie/bild3.jpg", alt: "Beschreibung 3" },
+      { src: "images/galerie/bild4.jpg", alt: "Beschreibung 4" }
+    ]
+  },
 
   // ── AUSBLICK ───────────────────────────────────────────────
   outlook: {
