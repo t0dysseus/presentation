@@ -270,10 +270,10 @@ const PRESENTATION_DATA = {
     title: "Bildergalerie",
     description: "Klicke auf ein Bild für die Großansicht.",
     images: [
-      { src: "images/galerie/bild1.jpg", alt: "Beschreibung 1" },
-      { src: "images/galerie/bild2.jpg", alt: "Beschreibung 2" },
-      { src: "images/galerie/bild3.jpg", alt: "Beschreibung 3" },
-      { src: "images/galerie/bild4.jpg", alt: "Beschreibung 4" }
+      { src: "images/galerie/bild1.jpeg", alt: "Beschreibung 1" },
+      { src: "images/galerie/bild2.jpeg", alt: "Beschreibung 2" },
+      { src: "images/galerie/bild3.jpeg", alt: "Beschreibung 3" },
+      { src: "images/galerie/bild4.jpeg", alt: "Beschreibung 4" }
     ]
   },
 
