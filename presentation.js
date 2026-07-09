@@ -251,14 +251,14 @@ function renderIntervention(num, data) {
         if (D.dannenmann1.leftImage) document.getElementById('dannenmann1-img-left').src = D.dannenmann1.leftImage;
         if (D.dannenmann1.rightImage) document.getElementById('dannenmann1-img-right').src = D.dannenmann1.rightImage;
     }
-    if (D.dannenmann2) {
+        if (D.dannenmann2) {
         document.getElementById('dannenmann2-title').textContent = D.dannenmann2.title;
         if (D.dannenmann2.image) document.getElementById('dannenmann2-img').src = D.dannenmann2.image;
         if (D.dannenmann2.models) {
            if (D.dannenmann2.models[0]) document.getElementById('dannenmann2-model1').setAttribute('src', D.dannenmann2.models[0]);
-if (D.dannenmann2.models[1]) document.getElementById('dannenmann2-model2').setAttribute('src', D.dannenmann2.models[1]);
-if (D.dannenmann2.models[2]) document.getElementById('dannenmann2-model3').setAttribute('src', D.dannenmann2.models[2]);
+           if (D.dannenmann2.models[1]) document.getElementById('dannenmann2-model2').setAttribute('src', D.dannenmann2.models[1]);
         }
+        if (D.dannenmann2.gif) document.getElementById('dannenmann2-gif').src = D.dannenmann2.gif;
     }
     if (D.dannenmann3) {
         document.getElementById('dannenmann3-title').textContent = D.dannenmann3.title;
