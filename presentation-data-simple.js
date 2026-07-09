@@ -153,7 +153,7 @@ example4: {
 dannenmann2: {
     title: "Dannenmann",
     image: "images/original.jpeg",
-    models: ["models/original.glb", "models/cut.glb",],
+    models: ["models/original.glb", "models/cut.glb",]
     gif: "images/3d.gif"
 },
 dannenmann3: {
