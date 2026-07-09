@@ -144,27 +144,21 @@ example4: {
     boxes: ["Ergebnis 1", "Ergebnis 2", "Ergebnis 3"]
 },
 
-  dannenmann1: {
+ dannenmann1: {
     title: "Dannenmann",
-    content: "<blockquote>«La Forza sia con te.»</blockquote><div class='quote-author'>— Guerre Stellari</div><blockquote>«Io sono tuo padre.»</blockquote><div class='quote-author'>— Darth Vader</div><blockquote>«Fare o non fare. Non c'è provare.»</blockquote><div class='quote-author'>— Yoda</div><blockquote>«Aiutami, Obi-Wan Kenobi. Sei la mia sola speranza.»</blockquote><div class='quote-author'>— Leia Organa</div>"
+    content: "<p>La Forza sia con te.</p><p>Io sono tuo padre.</p><p>Fare o non fare. Non c'è provare.</p><p>Aiutami, Obi-Wan Kenobi. Sei la mia sola speranza.</p>",
+    leftImage: "",
+    rightImage: ""
 },
 dannenmann2: {
     title: "Dannenmann",
-    image: "images/dannenmann2.jpg",
-    models: [
-        "models/dannenmann-a.glb",
-        "models/dannenmann-b.glb",
-        "models/dannenmann-c.glb"
-    ]
+    image: "",
+    models: ["", "", ""]
 },
 dannenmann3: {
     title: "Dannenmann",
-    images: [
-        "images/dannenmann3a.jpg",
-        "images/dannenmann3b.jpg",
-        "images/dannenmann3c.jpg"
-    ],
-    text: "<p>Hier steht der Begleittext zu den Bildern. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>"
+    images: ["", "", ""],
+    text: "<p>Hier steht der Begleittext zu den Bildern. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
 },
   
   // ── INTERVENTION 1 ─────────────────────────────────────────
