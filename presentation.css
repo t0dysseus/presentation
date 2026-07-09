@@ -1238,3 +1238,103 @@ body {
   justify-content: center;
   text-align: center;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   DANNENMANN-FOLIEN
+   ═══════════════════════════════════════════════════════════════ */
+
+.slide-dannenmann .slide-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.slide-dannenmann h2 {
+  margin-bottom: 24px;
+  font-size: 36px;
+}
+
+/* ── DANNENMANN 1: Zentrierter Inhalt ── */
+.dannenmann-center-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 26px;
+  line-height: 1.7;
+  color: var(--text);
+  padding: 0 8%;
+}
+
+.dannenmann-center-content blockquote {
+  font-style: italic;
+  border-left: 4px solid var(--hero-orange);
+  padding-left: 24px;
+  margin: 20px 0;
+  color: var(--muted);
+  text-align: left;
+  max-width: 700px;
+}
+
+.dannenmann-center-content .quote-author {
+  font-size: 18px;
+  color: var(--muted);
+  margin-top: 8px;
+  font-style: normal;
+  text-align: right;
+}
+
+/* ── DANNENMANN 2: 2×2 Grid ── */
+.dannenmann-grid-2x2 {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  min-height: 0;
+}
+
+.dannenmann-cell {
+  background: var(--bg-soft);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dannenmann-cell img,
+.dannenmann-cell model-viewer {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── DANNENMANN 3: Bilder oben, Text unten ── */
+.dannenmann-images-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+  height: 200px;
+  flex-shrink: 0;
+}
+
+.dannenmann-images-row img {
+  flex: 1;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.dannenmann-bottom-text {
+  flex: 1;
+  font-size: 22px;
+  line-height: 1.6;
+  color: var(--text);
+  overflow-y: auto;
+}
