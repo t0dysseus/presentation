@@ -168,7 +168,7 @@ dannenmann2: {
 },
 dannenmann3: {
     title: "Dannenmann",
-    images: ["", "", ""],
+    images: ["images/d1.jpeg", "images/d2.jpeg", "images/d3.jpeg"],
     text: "<p>Hier steht der Begleittext zu den Bildern. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
 },
   
