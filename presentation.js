@@ -205,6 +205,71 @@ function renderIntervention(num, data) {
     </div>`;
 }
 
+ // ═══════════════════════════════════════════════════════
+    // BEISPIEL-FOLIEN (Layout A–D)
+    // ═══════════════════════════════════════════════════════
+    if (D.example1) {
+        document.getElementById('ex1-num').textContent = D.example1.number;
+        document.getElementById('ex1-title').textContent = D.example1.title;
+        document.getElementById('ex1-text').innerHTML = D.example1.text;
+        if (D.example1.media) document.getElementById('ex1-media').src = D.example1.media;
+        if (D.example1.thumbs[0]) document.getElementById('ex1-thumb1').src = D.example1.thumbs[0];
+        if (D.example1.thumbs[1]) document.getElementById('ex1-thumb2').src = D.example1.thumbs[1];
+    }
+    if (D.example2) {
+        document.getElementById('ex2-num').textContent = D.example2.number;
+        document.getElementById('ex2-title').textContent = D.example2.title;
+        document.getElementById('ex2-text').innerHTML = D.example2.text;
+        if (D.example2.media) document.getElementById('ex2-media').src = D.example2.media;
+        if (D.example2.thumbs[0]) document.getElementById('ex2-thumb1').src = D.example2.thumbs[0];
+        if (D.example2.thumbs[1]) document.getElementById('ex2-thumb2').src = D.example2.thumbs[1];
+        if (D.example2.thumbs[2]) document.getElementById('ex2-thumb3').src = D.example2.thumbs[2];
+    }
+    if (D.example3) {
+        document.getElementById('ex3-num').textContent = D.example3.number;
+        document.getElementById('ex3-title').textContent = D.example3.title;
+        document.getElementById('ex3-text').innerHTML = D.example3.text;
+        if (D.example3.media) document.getElementById('ex3-media').src = D.example3.media;
+        if (D.example3.thumbs[0]) document.getElementById('ex3-thumb1').src = D.example3.thumbs[0];
+    }
+    if (D.example4) {
+        document.getElementById('ex4-num').textContent = D.example4.number;
+        document.getElementById('ex4-title').textContent = D.example4.title;
+        document.getElementById('ex4-text').innerHTML = D.example4.text;
+        if (D.example4.text2) document.getElementById('ex4-text2').innerHTML = D.example4.text2;
+        if (D.example4.boxes) {
+            if (D.example4.boxes[0]) document.getElementById('ex4-box1').textContent = D.example4.boxes[0];
+            if (D.example4.boxes[1]) document.getElementById('ex4-box2').textContent = D.example4.boxes[1];
+            if (D.example4.boxes[2]) document.getElementById('ex4-box3').textContent = D.example4.boxes[2];
+        }
+    }    // ═══════════════════════════════════════════════════════
+    // DANNENMANN-FOLIEN
+    // ═══════════════════════════════════════════════════════
+    if (D.dannenmann1) {
+        document.getElementById('dannenmann1-title').textContent = D.dannenmann1.title;
+        document.getElementById('dannenmann1-content').innerHTML = D.dannenmann1.content;
+        if (D.dannenmann1.leftImage) document.getElementById('dannenmann1-img-left').src = D.dannenmann1.leftImage;
+        if (D.dannenmann1.rightImage) document.getElementById('dannenmann1-img-right').src = D.dannenmann1.rightImage;
+    }
+    if (D.dannenmann2) {
+        document.getElementById('dannenmann2-title').textContent = D.dannenmann2.title;
+        if (D.dannenmann2.image) document.getElementById('dannenmann2-img').src = D.dannenmann2.image;
+        if (D.dannenmann2.models) {
+           if (D.dannenmann2.models[0]) document.getElementById('dannenmann2-model1').setAttribute('src', D.dannenmann2.models[0]);
+if (D.dannenmann2.models[1]) document.getElementById('dannenmann2-model2').setAttribute('src', D.dannenmann2.models[1]);
+if (D.dannenmann2.models[2]) document.getElementById('dannenmann2-model3').setAttribute('src', D.dannenmann2.models[2]);
+        }
+    }
+    if (D.dannenmann3) {
+        document.getElementById('dannenmann3-title').textContent = D.dannenmann3.title;
+        if (D.dannenmann3.images) {
+            if (D.dannenmann3.images[0]) document.getElementById('dannenmann3-img1').src = D.dannenmann3.images[0];
+            if (D.dannenmann3.images[1]) document.getElementById('dannenmann3-img2').src = D.dannenmann3.images[1];
+            if (D.dannenmann3.images[2]) document.getElementById('dannenmann3-img3').src = D.dannenmann3.images[2];
+        }
+        if (D.dannenmann3.text) document.getElementById('dannenmann3-text').innerHTML = D.dannenmann3.text;
+    }
+
 // ─────────────────────────────────────────────
 // 3D MODEL VIEWER
 // ─────────────────────────────────────────────
@@ -527,70 +592,7 @@ Reveal.on('ready', () => {
   }
 });
 
-    // ═══════════════════════════════════════════════════════
-    // BEISPIEL-FOLIEN (Layout A–D)
-    // ═══════════════════════════════════════════════════════
-    if (D.example1) {
-        document.getElementById('ex1-num').textContent = D.example1.number;
-        document.getElementById('ex1-title').textContent = D.example1.title;
-        document.getElementById('ex1-text').innerHTML = D.example1.text;
-        if (D.example1.media) document.getElementById('ex1-media').src = D.example1.media;
-        if (D.example1.thumbs[0]) document.getElementById('ex1-thumb1').src = D.example1.thumbs[0];
-        if (D.example1.thumbs[1]) document.getElementById('ex1-thumb2').src = D.example1.thumbs[1];
-    }
-    if (D.example2) {
-        document.getElementById('ex2-num').textContent = D.example2.number;
-        document.getElementById('ex2-title').textContent = D.example2.title;
-        document.getElementById('ex2-text').innerHTML = D.example2.text;
-        if (D.example2.media) document.getElementById('ex2-media').src = D.example2.media;
-        if (D.example2.thumbs[0]) document.getElementById('ex2-thumb1').src = D.example2.thumbs[0];
-        if (D.example2.thumbs[1]) document.getElementById('ex2-thumb2').src = D.example2.thumbs[1];
-        if (D.example2.thumbs[2]) document.getElementById('ex2-thumb3').src = D.example2.thumbs[2];
-    }
-    if (D.example3) {
-        document.getElementById('ex3-num').textContent = D.example3.number;
-        document.getElementById('ex3-title').textContent = D.example3.title;
-        document.getElementById('ex3-text').innerHTML = D.example3.text;
-        if (D.example3.media) document.getElementById('ex3-media').src = D.example3.media;
-        if (D.example3.thumbs[0]) document.getElementById('ex3-thumb1').src = D.example3.thumbs[0];
-    }
-    if (D.example4) {
-        document.getElementById('ex4-num').textContent = D.example4.number;
-        document.getElementById('ex4-title').textContent = D.example4.title;
-        document.getElementById('ex4-text').innerHTML = D.example4.text;
-        if (D.example4.text2) document.getElementById('ex4-text2').innerHTML = D.example4.text2;
-        if (D.example4.boxes) {
-            if (D.example4.boxes[0]) document.getElementById('ex4-box1').textContent = D.example4.boxes[0];
-            if (D.example4.boxes[1]) document.getElementById('ex4-box2').textContent = D.example4.boxes[1];
-            if (D.example4.boxes[2]) document.getElementById('ex4-box3').textContent = D.example4.boxes[2];
-        }
-    }    // ═══════════════════════════════════════════════════════
-    // DANNENMANN-FOLIEN
-    // ═══════════════════════════════════════════════════════
-    if (D.dannenmann1) {
-        document.getElementById('dannenmann1-title').textContent = D.dannenmann1.title;
-        document.getElementById('dannenmann1-content').innerHTML = D.dannenmann1.content;
-        if (D.dannenmann1.leftImage) document.getElementById('dannenmann1-img-left').src = D.dannenmann1.leftImage;
-        if (D.dannenmann1.rightImage) document.getElementById('dannenmann1-img-right').src = D.dannenmann1.rightImage;
-    }
-    if (D.dannenmann2) {
-        document.getElementById('dannenmann2-title').textContent = D.dannenmann2.title;
-        if (D.dannenmann2.image) document.getElementById('dannenmann2-img').src = D.dannenmann2.image;
-        if (D.dannenmann2.models) {
-            if (D.dannenmann2.models[0] !== undefined) document.getElementById('dannenmann2-model1').src = D.dannenmann2.models[0];
-            if (D.dannenmann2.models[1] !== undefined) document.getElementById('dannenmann2-model2').src = D.dannenmann2.models[1];
-            if (D.dannenmann2.models[2] !== undefined) document.getElementById('dannenmann2-model3').src = D.dannenmann2.models[2];
-        }
-    }
-    if (D.dannenmann3) {
-        document.getElementById('dannenmann3-title').textContent = D.dannenmann3.title;
-        if (D.dannenmann3.images) {
-            if (D.dannenmann3.images[0]) document.getElementById('dannenmann3-img1').src = D.dannenmann3.images[0];
-            if (D.dannenmann3.images[1]) document.getElementById('dannenmann3-img2').src = D.dannenmann3.images[1];
-            if (D.dannenmann3.images[2]) document.getElementById('dannenmann3-img3').src = D.dannenmann3.images[2];
-        }
-        if (D.dannenmann3.text) document.getElementById('dannenmann3-text').innerHTML = D.dannenmann3.text;
-    }
+   
 Reveal.on('slidechanged', (event) => {
   const total = Reveal.getTotalSlides();
   const current = event.indexh + 1;
