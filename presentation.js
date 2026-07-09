@@ -40,6 +40,20 @@ Reveal.initialize({
 // ── DOM ──────────────────────────────────────────────────────
 const shapes = document.querySelectorAll('.hero-bg svg .shape');
 
+// ═══════════════════════════════════════════════════════
+// LIGHTBOX-HILFSFUNKTION: Einzelnes Bild öffnen
+// ═══════════════════════════════════════════════════════
+function openSingleImage(src) {
+    var lightbox = document.getElementById("gallery-lightbox");
+    var lightboxImg = document.getElementById("gallery-lightbox-img");
+    lightboxImg.src = src;
+    // Pfeile ausblenden, weil es nur ein einzelnes Bild ist
+    document.querySelector('.gallery-lightbox-prev').style.display = 'none';
+    document.querySelector('.gallery-lightbox-next').style.display = 'none';
+    lightbox.classList.add("active");
+}
+
+
 // ── CONTENT RENDERING ────────────────────────────────────────
 function renderContent() {
 
@@ -262,6 +276,7 @@ function renderIntervention(num, data) {
                 openSingleImage(D.dannenmann2.image);
             };
         }
+         }      
                
     if (D.dannenmann3) {
         document.getElementById('dannenmann3-title').textContent = D.dannenmann3.title;
