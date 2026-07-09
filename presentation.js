@@ -527,6 +527,45 @@ Reveal.on('ready', () => {
   }
 });
 
+    // ═══════════════════════════════════════════════════════
+    // BEISPIEL-FOLIEN (Layout A–D)
+    // ═══════════════════════════════════════════════════════
+    if (D.example1) {
+        document.getElementById('ex1-num').textContent = D.example1.number;
+        document.getElementById('ex1-title').textContent = D.example1.title;
+        document.getElementById('ex1-text').innerHTML = D.example1.text;
+        if (D.example1.media) document.getElementById('ex1-media').src = D.example1.media;
+        if (D.example1.thumbs[0]) document.getElementById('ex1-thumb1').src = D.example1.thumbs[0];
+        if (D.example1.thumbs[1]) document.getElementById('ex1-thumb2').src = D.example1.thumbs[1];
+    }
+    if (D.example2) {
+        document.getElementById('ex2-num').textContent = D.example2.number;
+        document.getElementById('ex2-title').textContent = D.example2.title;
+        document.getElementById('ex2-text').innerHTML = D.example2.text;
+        if (D.example2.media) document.getElementById('ex2-media').src = D.example2.media;
+        if (D.example2.thumbs[0]) document.getElementById('ex2-thumb1').src = D.example2.thumbs[0];
+        if (D.example2.thumbs[1]) document.getElementById('ex2-thumb2').src = D.example2.thumbs[1];
+        if (D.example2.thumbs[2]) document.getElementById('ex2-thumb3').src = D.example2.thumbs[2];
+    }
+    if (D.example3) {
+        document.getElementById('ex3-num').textContent = D.example3.number;
+        document.getElementById('ex3-title').textContent = D.example3.title;
+        document.getElementById('ex3-text').innerHTML = D.example3.text;
+        if (D.example3.media) document.getElementById('ex3-media').src = D.example3.media;
+        if (D.example3.thumbs[0]) document.getElementById('ex3-thumb1').src = D.example3.thumbs[0];
+    }
+    if (D.example4) {
+        document.getElementById('ex4-num').textContent = D.example4.number;
+        document.getElementById('ex4-title').textContent = D.example4.title;
+        document.getElementById('ex4-text').innerHTML = D.example4.text;
+        if (D.example4.text2) document.getElementById('ex4-text2').innerHTML = D.example4.text2;
+        if (D.example4.boxes) {
+            if (D.example4.boxes[0]) document.getElementById('ex4-box1').textContent = D.example4.boxes[0];
+            if (D.example4.boxes[1]) document.getElementById('ex4-box2').textContent = D.example4.boxes[1];
+            if (D.example4.boxes[2]) document.getElementById('ex4-box3').textContent = D.example4.boxes[2];
+        }
+    }
+
 Reveal.on('slidechanged', (event) => {
   const total = Reveal.getTotalSlides();
   const current = event.indexh + 1;
