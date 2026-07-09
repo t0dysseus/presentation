@@ -163,7 +163,7 @@ dannenmann1: {
 },
 dannenmann2: {
     title: "Dannenmann",
-    image: "",
+    image: "images/original.jpeg",
     models: ["models/original.glb", "models/cut.glb", ""]
 },
 dannenmann3: {
