@@ -120,6 +120,9 @@ const PRESENTATION_DATA = {
   },
 
   // ── LIVE-DEMO (INCEPTION) ──────────────────────────────────
+  // Hier wird die Website in der Präsentation eingebettet.
+  // url: Die Adresse eurer Website.
+  // title: Überschrift auf der Folie.
   inception: {
     title: "Kurzübersicht aller Interventionen",
     url: "https://hierrosa.github.io/hierrosa.github.io.-/"
@@ -224,6 +227,33 @@ const PRESENTATION_DATA = {
     ]
   },
 
+// ── 3D MODEL VIEWER ─────────────────────────────────────────
+modelViewer: {
+  title: "3D-Modelle",
+
+  models: [
+
+      {
+          name: "Modell 1",
+          file: "models/original.glb",
+          description: "Beschreibung des ersten Modells."
+      },
+
+      {
+          name: "Modell 2",
+          file: "models/modell2.glb",
+          description: "Beschreibung des zweiten Modells."
+      },
+
+      {
+          name: "Modell 3",
+          file: "models/modell3.glb",
+          description: "Beschreibung des dritten Modells."
+      }
+
+  ]
+},
+
   // ── AUSBLICK ───────────────────────────────────────────────
   outlook: {
     title: "Ausblick",
@@ -234,65 +264,13 @@ const PRESENTATION_DATA = {
     ],
     thanks: "Che la forza sia con te.",
     contact: "Team Raum – SS2026 – BHT"
-  },
-
-  // ═══════════════════════════════════════════════════════════
-  // NEU: VIDEO PLAYER (Folie 27)
-  // ═══════════════════════════════════════════════════════════
-  // So nutzt du es:
-  // 1. Lade dein Video hoch (z.B. videos/mein-video.mp4)
-  // 2. Trage den Pfad hier ein
-  // 3. Optional: poster = Bild das vor dem Abspielen gezeigt wird
-  //
-  // Beispiel:
-  // video: {
-  //   title: "Unser Produktfilm",
-  //   src: "videos/produktfilm.mp4",
-  //   poster: "videos/vorschau.jpg",  // Optional
-  //   caption: "Dauer: 2:30 min"
-  // }
-  video: null,  // ← HIER DEIN VIDEO EINFÜGEN (oder null wenn nicht benötigt)
-
-  // ═══════════════════════════════════════════════════════════
-  // NEU: BILDERGALERIE (Folie 28)
-  // ═══════════════════════════════════════════════════════════
-  // So nutzt du es:
-  // 1. Lade deine Bilder hoch (z.B. images/galerie/)
-  // 2. Trage die Pfade hier ein
-  //
-  // Beispiel:
-  // gallery: {
-  //   title: "Projektbilder",
-  //   images: [
-  //     { src: "images/galerie/bild1.jpg", alt: "Beschreibung 1" },
-  //     { src: "images/galerie/bild2.jpg", alt: "Beschreibung 2" },
-  //     { src: "images/galerie/bild3.jpg", alt: "Beschreibung 3" }
-  //   ]
-  // }
-  gallery: null,  // ← HIER DEINE BILDER EINFÜGEN (oder null wenn nicht benötigt)
-
-  // ═══════════════════════════════════════════════════════════
-  // NEU: 3D MODELL VIEWER (Folie 29)
-  // ═══════════════════════════════════════════════════════════
-  // So nutzt du es:
-  // 1. Lade dein 3D-Modell hoch (z.B. models/mein-modell.glb)
-  // 2. Trage den Pfad hier ein
-  // 3. Unterstützte Formate: .glb, .gltf (empfohlen!)
-  //
-  // Beispiel:
-  // model3d: {
-  //   title: "Unser 3D-Modell",
-  //   src: "models/raum-modell.glb",
-  //   caption: "Interaktiv drehen: Klick + Ziehen"
-  // }
- model3d: {
-    title: "Dannenmann",
-    src: "models/original.glb",     // ← DEIN 3D-MODELL PFAD
-    caption: "Interaktiv drehen: Klick + Ziehen"
-  }  
-  // ← HIER DEIN 3D-MODELL EINFÜGEN (oder null wenn nicht benötigt)
+  }
 
 };
+
+// ═══════════════════════════════════════════════════════════════
+//  ENDE DER DATEN – Ab hier nichts ändern!
+// ═══════════════════════════════════════════════════════════════
 
 function getStatusColor(status) {
   var colors = {

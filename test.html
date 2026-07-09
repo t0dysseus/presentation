@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Model Viewer Test</title>
+
+  <script type="module"
+    src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js">
+  </script>
+
+  <style>
+    body{
+      margin:0;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      background:#ddd;
+    }
+
+    model-viewer{
+      width:900px;
+      height:700px;
+      background:white;
+      border:1px solid #999;
+    }
+  </style>
+</head>
+<body>
+
+<model-viewer
+    src="models/original.glb"
+    camera-controls
+    auto-rotate>
+</model-viewer>
+
+</body>
+</html>
