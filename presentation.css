@@ -1302,7 +1302,7 @@ body {
 .dannenmann-grid-2x2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 340px 340px;   /* ← jede Zeile exakt 340px */
+  grid-template-rows: 340px 340px;
   gap: 20px;
   margin-top: 20px;
 }
@@ -1315,7 +1315,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;            /* kleiner innerer Rand, optional */
+  height: 340px;
 }
 
 .dannenmann-grid-2x2 .dannenmann-cell img,
