@@ -1238,7 +1238,6 @@ body {
   justify-content: center;
   text-align: center;
 }
-
 /* ═══════════════════════════════════════════════════════════════
    DANNENMANN-FOLIEN
    ═══════════════════════════════════════════════════════════════ */
@@ -1254,36 +1253,51 @@ body {
   font-size: 36px;
 }
 
-/* ── DANNENMANN 1: Zentrierter Inhalt ── */
-.dannenmann-center-content {
+/* ── DANNENMANN 1: Bild | Text | Bild ── */
+.dannenmann-triple {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 28px;
   flex: 1;
+  align-items: stretch;
+  min-height: 0;
+}
+
+.dannenmann-side-box {
+  background: var(--bg-soft);
+  border-radius: 16px;
+  border: 2px dashed var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.dannenmann-side-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* Wenn kein Bild geladen ist, bleibt die graue Platzhalter-Box sichtbar */
+.dannenmann-side-box img[src=""] {
+  display: none;
+}
+
+.dannenmann-center-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 26px;
+  font-size: 22px;
   line-height: 1.7;
   color: var(--text);
-  padding: 0 8%;
-}
-
-.dannenmann-center-content blockquote {
-  font-style: italic;
-  border-left: 4px solid var(--hero-orange);
-  padding-left: 24px;
-  margin: 20px 0;
-  color: var(--muted);
-  text-align: left;
-  max-width: 700px;
-}
-
-.dannenmann-center-content .quote-author {
-  font-size: 18px;
-  color: var(--muted);
-  margin-top: 8px;
-  font-style: normal;
-  text-align: right;
+  padding: 20px;
 }
 
 /* ── DANNENMANN 2: 2×2 Grid ── */
@@ -1304,6 +1318,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  min-height: 0;
 }
 
 .dannenmann-cell img,
@@ -1312,6 +1328,14 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* Wenn leer, bleibt die graue Box als Platzhalter sichtbar */
+.dannenmann-cell img[src=""],
+.dannenmann-cell model-viewer:not([src]) {
+  display: none !important;
 }
 
 /* ── DANNENMANN 3: Bilder oben, Text unten ── */
@@ -1329,6 +1353,7 @@ body {
   object-fit: cover;
   border-radius: 12px;
   border: 1px solid var(--border);
+  background: var(--bg-soft);
 }
 
 .dannenmann-bottom-text {
