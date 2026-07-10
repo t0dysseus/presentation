@@ -104,7 +104,7 @@ body {
   position: absolute !important;
   top: 50% !important;
   left: 50% !important;
-  margin-top: -405px !important; /* Genau die halbe Höhe nach oben gezogen */
+  margin-top: -435px !important; /* Genau die halbe Höhe nach oben gezogen */
   margin-left: -720px !important; /* Genau die halbe Breite nach links gezogen */
   
   overflow: hidden !important;   /* Hält den Inhalt sauber innerhalb der Box */
