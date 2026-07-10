@@ -1342,7 +1342,7 @@ body {
 }
 
 .dannenmann-grid-2x2 .dannenmann-cell {
-  background: var(--bg-soft);
+  background: #ec7d23;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--border);
