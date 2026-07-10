@@ -94,15 +94,18 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.5) !important; /* Subtile Lichtkante */
   
   /* Breite und Höhe festlegen, damit der Rand zu allen Seiten erzeugt wird */
-  width: 1280px !important;  /* Feste Breite für das 16:9 Verhältnis */
-  height: 720px !important;  /* Feste Höhe */
+  width: 1440px !important;  /* Feste Breite für das 16:9 Verhältnis */
+  height: 810px !important;  /* Feste Höhe */
+
+
+  
   
   /* Absolute Zentrierung im Reveal-Container */
   position: absolute !important;
   top: 50% !important;
   left: 50% !important;
-  margin-top: -360px !important; /* Genau die halbe Höhe nach oben gezogen */
-  margin-left: -640px !important; /* Genau die halbe Breite nach links gezogen */
+  margin-top: -405px !important; /* Genau die halbe Höhe nach oben gezogen */
+  margin-left: -720px !important; /* Genau die halbe Breite nach links gezogen */
   
   overflow: hidden !important;   /* Hält den Inhalt sauber innerhalb der Box */
   opacity: 1 !important;         /* Verhindert das Deckkraft-Fading beim Sliden */
