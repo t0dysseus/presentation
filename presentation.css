@@ -392,7 +392,7 @@ body {
 
 .intervention-card img {
   width: 100%;
-  height: 240px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   filter: grayscale(100%);
   transition: 0.6s ease;
@@ -1064,7 +1064,7 @@ body {
 /* Das Bild selbst */
 .gallery-item img {
   width: 100%;
-  height: 160px;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
 }
@@ -1230,13 +1230,19 @@ body {
 .example-layout-b {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 2fr 1fr;
   gap: 20px;
   flex: 1;
+  min-height: 0; /* let the grid shrink inside its flex parent instead of growing past the card */
 }
-.example-layout-b .example-media { grid-column: 1; grid-row: 1; min-height: 200px; }
-.example-layout-b .example-text { grid-column: 2; grid-row: 1; }
-.example-layout-b .example-thumbs { grid-column: 1 / -1; grid-row: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.example-layout-b .example-media,
+.example-layout-b .example-text {
+  grid-row: 1;
+  min-height: 0; /* grid rows default to min-height:auto, which uses the <img>'s intrinsic size and blows out the row; this lets object-fit:cover crop it instead */
+}
+.example-layout-b .example-media { grid-column: 1; }
+.example-layout-b .example-text { grid-column: 2; }
+.example-layout-b .example-thumbs { grid-column: 1 / -1; grid-row: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; min-height: 0; }
 
 /* ── Layout C: Text links | Bild rechts (hoch) | 1 Thumb unten rechts ── */
 .example-layout-c {
@@ -1271,6 +1277,176 @@ body {
   justify-content: center;
   text-align: center;
 
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO-IMAGE-THUMBS (eigenes Layout, nur für diesen einen Layout-
+   Namen — NICHT mit den example-* Klassen teilen, die die
+   BEISPIEL-Folien brauchen). Alles hier hängt NUR am Klassennamen
+   ".hero-image-thumbs" (== der Layout-Name in slides-config.js);
+   die Kind-Elemente haben bewusst KEINE eigenen Klassen, nur
+   Struktur-Selektoren (Reihenfolge im Template ist relevant).
+   Keine Karten um die Bilder: der Radius sitzt direkt auf dem
+   <img>, Abstand kommt nur vom Grid-Gap.
+   ═══════════════════════════════════════════════════════════════ */
+
+.hero-image-thumbs .slide-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Every flex/grid item in this layout needs min-height:0, or its default
+   min-height:auto — which for an image considers its intrinsic size, not
+   its object-fit:cover crop — blows the row out past the card. One
+   blanket rule instead of repeating it on each selector below. */
+.hero-image-thumbs * {
+  min-height: 0;
+}
+
+.hero-image-thumbs .slide-content > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  gap: 20px;
+  flex: 1;
+}
+
+/* hero image: 1st child, top-left */
+.hero-image-thumbs .slide-content > div > img {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* text: 2nd child, top-right */
+.hero-image-thumbs .slide-content > div > div:first-of-type {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* thumbs row: 3rd child, spans full width on the bottom */
+.hero-image-thumbs .slide-content > div > div:last-of-type {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* hero image + all 3 thumbs share the same treatment; only their grid
+   placement above differs. (display:block is unneeded here — CSS Grid
+   "blockifies" any grid item's display, so the <img>'s default inline
+   already computes to block once it's a grid child.) */
+.hero-image-thumbs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  /* reveal.css's "html:not(.print-pdf) .reveal section img" rule adds a
+     15px vertical margin + border + white background at a specificity
+     higher than a single class here can beat — !important is the
+     established way this codebase already fights reveal.css defaults
+     (see .reveal .slides section above). */
+  margin: 0 !important;
+  border: none !important;
+  background: none !important;
+  /* the "white" theme's ".reveal img { max-width:95%; max-height:95% }"
+     is a safety net for raw, unsized <img> tags — ours are already
+     explicitly sized, so this just left an unwanted gap inside the cell. */
+  max-width: none;
+  max-height: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SLOT-GRIDS (generische Bild-Raster: slot-grid-3x2, slot-grid-2x2,
+   slot-columns-2/3/4)
+
+   Jedes dieser Layouts hängt NUR am eigenen Klassennamen (== Layout-
+   Name in slides-config.js); die Zellen (slotN) haben keine eigenen
+   Klassen, nur Struktur-Selektoren — gleiches Muster wie bei
+   hero-image-thumbs oben. Keine Karten um die Bilder: der Radius
+   sitzt direkt auf dem <img>, Abstand kommt nur vom Grid-Gap.
+
+   Die Radius-/Gap-Werte (12px / 20px) sind 1:1 von hero-image-thumbs
+   übernommen. Sobald es Design-Tokens gibt, sollten die von dort
+   kommen statt hier (und bei hero-image-thumbs) verdoppelt zu sein.
+   ═══════════════════════════════════════════════════════════════ */
+
+.slot-grid-3x2 .slide-content,
+.slot-grid-2x2 .slide-content,
+.slot-columns-2 .slide-content,
+.slot-columns-3 .slide-content,
+.slot-columns-4 .slide-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* every flex/grid item here needs min-height:0, or its default
+   min-height:auto — which for an image considers its intrinsic size,
+   not its object-fit:cover crop — blows the row out past the card */
+.slot-grid-3x2 *,
+.slot-grid-2x2 *,
+.slot-columns-2 *,
+.slot-columns-3 *,
+.slot-columns-4 * {
+  min-height: 0;
+}
+
+.slot-grid-3x2 .slide-content > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  flex: 1;
+}
+
+.slot-grid-2x2 .slide-content > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  flex: 1;
+}
+
+.slot-columns-2 .slide-content > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  flex: 1;
+}
+
+.slot-columns-3 .slide-content > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  flex: 1;
+}
+
+.slot-columns-4 .slide-content > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  flex: 1;
+}
+
+/* shared image treatment across all slot-grid layouts — same
+   crop/radius/reset pattern as hero-image-thumbs. An empty slot is
+   just an empty grid-item <div>, so nothing to style there. */
+.slot-grid-3x2 img,
+.slot-grid-2x2 img,
+.slot-columns-2 img,
+.slot-columns-3 img,
+.slot-columns-4 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 !important;
+  border: none !important;
+  background: none !important;
+  max-width: none;
+  max-height: none;
 }
 
 /* ═══════════════════════════════════════════════════════════════

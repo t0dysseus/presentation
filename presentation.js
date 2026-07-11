@@ -315,11 +315,21 @@ document.addEventListener('keydown', (e) => {
 }, true);
 
 // ── REVEAL EVENTS ────────────────────────────────────────────
+const SLIDE_INDEX_KEY = 'rosa-slide-index';
+
 Reveal.on('ready', () => {
+  // Bei Reload (z.B. Live-Reload während der Entwicklung) auf der
+  // zuletzt angesehenen Folie bleiben, statt immer auf Folie 1
+  // zurückzuspringen.
+  const savedIndex = sessionStorage.getItem(SLIDE_INDEX_KEY);
+  if (savedIndex !== null) {
+    Reveal.slide(parseInt(savedIndex, 10));
+  }
+
   const total = Reveal.getTotalSlides();
   const current = Reveal.getIndices().h + 1;
   updateProgress(current, total);
-  updateParallax(0);
+  updateParallax(Reveal.getIndices().h);
 });
 
 Reveal.on('slidechanged', (event) => {
@@ -327,6 +337,7 @@ Reveal.on('slidechanged', (event) => {
   const current = event.indexh + 1;
   updateProgress(current, total);
   updateParallax(event.indexh);
+  sessionStorage.setItem(SLIDE_INDEX_KEY, event.indexh);
 
   // Fokus aus dem Live-Demo-iframe nehmen, wenn man wegklickt
   document.querySelectorAll('.inception-iframe').forEach(iframe => {

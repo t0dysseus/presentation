@@ -467,4 +467,110 @@ const TEMPLATES = {
         <p class="closing-contact">${esc(s.contact)}</p>
       </div>
     </section>`,
+
+  // Benötigt: title, text, media, thumbs:[3]
+  // Eigenes Layout NUR für die "Partner"-Folie (nicht mit
+  // image-text-thumbs-3 teilen, das brauchen auch die
+  // BEISPIEL-Folien) — großes Bild + Text oben (2/3 Höhe),
+  // 3 Thumbnails unten (1/3 Höhe). Keine Karten: die Bilder
+  // selbst haben den Radius, Abstand kommt nur vom Grid-Gap.
+  //
+  // Die CSS für dieses Layout hängt NUR am Klassennamen
+  // "hero-image-thumbs" (== dieser Layout-Name) — keine weiteren
+  // Klassen auf den Kind-Elementen, nur Struktur-Selektoren.
+  'hero-image-thumbs': (s, layer) => `
+    <section class="hero-image-thumbs">
+      <div class="slide-content">
+        <h2>${esc(t(s.title, layer))}</h2>
+        <div>
+          <img src="${esc(s.media)}" alt="">
+          <div><p>${esc(t(s.text, layer))}</p></div>
+          <div>
+            <img src="${esc((s.thumbs||[])[0])}" alt="">
+            <img src="${esc((s.thumbs||[])[1])}" alt="">
+            <img src="${esc((s.thumbs||[])[2])}" alt="">
+          </div>
+        </div>
+      </div>
+    </section>`,
+
+  // ── SLOT-GRIDS (generische Bild-Raster) ──────────────────────
+  // Jeder "slotN" ist ein rohes HTML-Feld (meist ein <img>, aber
+  // nicht erzwungen) — genau wie andere "text"-Felder in dieser
+  // Datei schon roh eingesetzt werden. Ein fehlendes/leeres slotN
+  // wird zu einer leeren Zelle (die Rasterfunktion unten füllt das
+  // automatisch auf, die Folie muss slotN nicht angeben).
+  //
+  // Die CSS für jedes dieser Layouts hängt NUR am eigenen Klassen-
+  // namen (== Layout-Name); die Zellen haben keine eigenen Klassen,
+  // nur Struktur-Selektoren (siehe hero-image-thumbs oben).
+
+  // Benötigt: title, slot1..slot6 (je optional, roh HTML)
+  'slot-grid-3x2': (s, layer) => `
+    <section class="slot-grid-3x2">
+      <div class="slide-content">
+        <h2>${esc(t(s.title, layer))}</h2>
+        <div>
+          <div>${s.slot1 || ''}</div>
+          <div>${s.slot2 || ''}</div>
+          <div>${s.slot3 || ''}</div>
+          <div>${s.slot4 || ''}</div>
+          <div>${s.slot5 || ''}</div>
+          <div>${s.slot6 || ''}</div>
+        </div>
+      </div>
+    </section>`,
+
+  // Benötigt: title, slot1..slot4 (je optional, roh HTML)
+  'slot-grid-2x2': (s, layer) => `
+    <section class="slot-grid-2x2">
+      <div class="slide-content">
+        <h2>${esc(t(s.title, layer))}</h2>
+        <div>
+          <div>${s.slot1 || ''}</div>
+          <div>${s.slot2 || ''}</div>
+          <div>${s.slot3 || ''}</div>
+          <div>${s.slot4 || ''}</div>
+        </div>
+      </div>
+    </section>`,
+
+  // Benötigt: title, slot1, slot2 (je optional, roh HTML)
+  'slot-columns-2': (s, layer) => `
+    <section class="slot-columns-2">
+      <div class="slide-content">
+        <h2>${esc(t(s.title, layer))}</h2>
+        <div>
+          <div>${s.slot1 || ''}</div>
+          <div>${s.slot2 || ''}</div>
+        </div>
+      </div>
+    </section>`,
+
+  // Benötigt: title, slot1..slot3 (je optional, roh HTML)
+  'slot-columns-3': (s, layer) => `
+    <section class="slot-columns-3">
+      <div class="slide-content">
+        <h2>${esc(t(s.title, layer))}</h2>
+        <div>
+          <div>${s.slot1 || ''}</div>
+          <div>${s.slot2 || ''}</div>
+          <div>${s.slot3 || ''}</div>
+        </div>
+      </div>
+    </section>`,
+
+  // Benötigt: title, slot1..slot4 (je optional, roh HTML)
+  'slot-columns-4': (s, layer) => `
+    <section class="slot-columns-4">
+      <div class="slide-content">
+        <h2>${esc(t(s.title, layer))}</h2>
+        <div>
+          <div>${s.slot1 || ''}</div>
+          <div>${s.slot2 || ''}</div>
+          <div>${s.slot3 || ''}</div>
+          <div>${s.slot4 || ''}</div>
+        </div>
+      </div>
+    </section>`,
 };

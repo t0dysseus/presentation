@@ -45,6 +45,15 @@
 //  video-player            – Video-Player
 //  image-gallery           – Bildergalerie mit Lightbox
 //  closing-list            – Ausblick + Dank + Kontakt
+//  hero-image-thumbs       – Großes Bild + Text oben, 3 Thumbs unten
+//  slot-grid-3x2           – Raster: 3 Spalten × 2 Reihen, slot1..slot6
+//  slot-grid-2x2           – Raster: 2 Spalten × 2 Reihen, slot1..slot4
+//  slot-columns-2          – 1 Reihe, 2 Spalten, slot1..slot2
+//  slot-columns-3          – 1 Reihe, 3 Spalten, slot1..slot3
+//  slot-columns-4          – 1 Reihe, 4 Spalten, slot1..slot4
+//
+//  Bei den slot-*-Layouts ist jedes slotN roh HTML (meist ein
+//  <img>) — leer/weggelassen ergibt eine leere Zelle.
 //
 //  MEHRSPRACHIGKEIT (Standard- vs. leichte Sprache)
 //  ───────────────────────────────────────────────────────────────
@@ -59,6 +68,108 @@
 // ═══════════════════════════════════════════════════════════════
 
 const SLIDES = [
+
+  // ── BEISPIEL: slot-grid-3x2 (3 Spalten × 2 Reihen, 6 Zellen) ──
+  {
+    layout: "slot-grid-3x2",
+    title: "Beispiel: slot-grid-3x2",
+    slot1: "<img src=\"https://placecats.com/300/200\">",
+    slot2: "<img src=\"https://placecats.com/301/200\">",
+    slot3: "<img src=\"https://placecats.com/302/200\">",
+    slot4: "<img src=\"https://placecats.com/300/201\">",
+    slot5: "<img src=\"https://placecats.com/301/201\">",
+    slot6: "<img src=\"https://placecats.com/302/201\">"
+  },
+
+  // ── BEISPIEL: slot-grid-2x2 (2 Spalten × 2 Reihen, 4 Zellen) ──
+  {
+    layout: "slot-grid-2x2",
+    title: "Beispiel: slot-grid-2x2",
+    slot1: "<img src=\"https://placecats.com/400/300\">",
+    slot2: "<img src=\"https://placecats.com/401/300\">",
+    slot3: "<img src=\"https://placecats.com/400/301\">",
+    slot4: "<img src=\"https://placecats.com/401/301\">"
+  },
+
+  // ── BEISPIEL: slot-columns-2 (1 Reihe, 2 Spalten) ─────────────
+  {
+    layout: "slot-columns-2",
+    title: "Beispiel: slot-columns-2",
+    slot1: "<img src=\"https://placecats.com/500/400\">",
+    slot2: "<img src=\"https://placecats.com/501/400\">"
+  },
+
+  // ── BEISPIEL: slot-columns-3 (1 Reihe, 3 Spalten) ─────────────
+  {
+    layout: "slot-columns-3",
+    title: "Beispiel: slot-columns-3",
+    slot1: "<img src=\"https://placecats.com/300/400\">",
+    slot2: "<img src=\"https://placecats.com/301/400\">",
+    slot3: "<img src=\"https://placecats.com/302/400\">"
+  },
+
+  // ── BEISPIEL: slot-columns-4 (1 Reihe, 4 Spalten) ─────────────
+  {
+    layout: "slot-columns-4",
+    title: "Beispiel: slot-columns-4",
+    slot1: "<img src=\"https://placecats.com/250/350\">",
+    slot2: "<img src=\"https://placecats.com/251/350\">",
+    slot3: "<img src=\"https://placecats.com/252/350\">",
+    slot4: "<img src=\"https://placecats.com/253/350\">"
+  },
+
+  // ── BEISPIEL: slot-grid-3x2 mit Leerzellen (nur obere Hälfte) ──
+  {
+    layout: "slot-grid-3x2",
+    title: "Beispiel: slot-grid-3x2 (nur obere Hälfte belegt)",
+    slot1: "<img src=\"https://placecats.com/310/210\">",
+    slot2: "<img src=\"https://placecats.com/311/210\">",
+    slot3: "<img src=\"https://placecats.com/312/210\">"
+    // slot4-6 bleiben weg → leere Zellen unten
+  },
+
+  // ── BEISPIEL: slot-grid-2x2, linke Spalte leer, rechte gestapelt ──
+  {
+    layout: "slot-grid-2x2",
+    title: "Beispiel: slot-grid-2x2 (linke Spalte leer)",
+    slot2: "<img src=\"https://placecats.com/410/310\">",
+    slot4: "<img src=\"https://placecats.com/411/310\">"
+    // slot1, slot3 (linke Spalte) bleiben weg → leer
+  },
+
+  // ── BEISPIEL: slot-columns-3, nur die dritte Spalte belegt ────
+  {
+    layout: "slot-columns-3",
+    title: "Beispiel: slot-columns-3 (nur 3. Spalte belegt)",
+    slot3: "<img src=\"https://placecats.com/310/410\">"
+    // slot1, slot2 bleiben weg → leer
+  },
+
+  // ── BEISPIEL: slot-columns-4, nur die letzten beiden belegt ───
+  {
+    layout: "slot-columns-4",
+    title: "Beispiel: slot-columns-4 (nur letzte 2 Spalten belegt)",
+    slot3: "<img src=\"https://placecats.com/260/360\">",
+    slot4: "<img src=\"https://placecats.com/261/360\">"
+    // slot1, slot2 bleiben weg → leer
+  },
+
+  // ── BEISPIEL: slot-columns-2 mit Text statt Bild in einem Slot ──
+  {
+    layout: "slot-columns-2",
+    title: "Beispiel: slot-columns-2 (Text + Bild)",
+    slot1: "<p>Ein Slot kann auch ganz normaler Text sein, nicht nur ein Bild — es ist einfach rohes HTML.</p>",
+    slot2: "<img src=\"https://placecats.com/510/410\">"
+  },
+
+  // ── BEISPIEL: slot-columns-3 mit einer Liste in einem Slot ────
+  {
+    layout: "slot-columns-3",
+    title: "Beispiel: slot-columns-3 (Liste + Bild + Text)",
+    slot1: "<ul><li>Erster Punkt</li><li>Zweiter Punkt</li><li>Dritter Punkt</li></ul>",
+    slot2: "<img src=\"https://placecats.com/320/420\">",
+    slot3: "<p>Und auch einfacher Text geht natürlich weiterhin.</p>"
+  },
 
   // ── 01: TITEL ────────────────────────────────────────────────
   {
@@ -103,17 +214,16 @@ const SLIDES = [
     }
   },
 
-  // ── 04: PARTNER (Layout B: Bild li. | Text re. | 3 Thumbs) ──
+  // ── 04: PARTNER (eigenes Layout: großes Bild+Text oben, 3 Thumbs unten) ──
   {
-    layout: "image-text-thumbs-3",
-    number: "",
+    layout: "hero-image-thumbs",
     title: "Partner",
     text: {
-      standard: "<h3></h3><p class=\"partner-location\"></p><p>Le vie della Forza sono misteriose.</p>",
-      simple: "<h3></h3><p class=\"partner-location\"></p><p>La calma, la pace passiva.</p>"
+      standard: "Le vie della Forza sono misteriose.",
+      simple: "La calma, la pace passiva."
     },
-    media: "images/partner-hero.jpg",
-    thumbs: ["images/partner-thumb1.jpg", "images/partner-thumb2.jpg", "images/partner-thumb3.jpg"]
+    media: "https://placecats.com/800/600",
+    thumbs: ["https://placecats.com/300/300", "https://placecats.com/301/300", "https://placecats.com/300/301"]
   },
 
   // ── 05: AUSGANGSSITUATION ────────────────────────────────────
