@@ -264,9 +264,15 @@ const TEMPLATES = {
       <div class="slide-content">
         <h2>${esc(t(s.title, layer))}</h2>
         <div class="dannenmann-triple">
-          <div class="dannenmann-side-box"><img src="${esc(s.leftImage)}" alt=""></div>
+          <div class="dannenmann-side-box">
+            <img src="${esc(s.leftImage1)}" alt="">
+            <img src="${esc(s.leftImage2)}" alt="">
+          </div>
           <div class="dannenmann-center-content">${t(s.content, layer) || ''}</div>
-          <div class="dannenmann-side-box"><img src="${esc(s.rightImage)}" alt=""></div>
+          <div class="dannenmann-side-box">
+            <img src="${esc(s.rightImage1)}" alt="">
+            <img src="${esc(s.rightImage2)}" alt="">
+          </div>
         </div>
       </div>
     </section>`,
