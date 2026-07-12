@@ -345,8 +345,10 @@ const SLIDES = [
       standard: "<p>La Forza sia con te.</p><p>Io sono tuo padre.</p><p>Fare o non fare. Non c'è provare.</p><p>Aiutami, Obi-Wan Kenobi. Sei la mia sola speranza.</p>",
       simple:   "<p>La Forza sia con te.</p><p>Io sono tuo padre.</p><p>Fare o non fare. Non c'è provare.</p><p>Aiutami, Obi-Wan Kenobi. Sei la mia sola speranza.</p>"
     },
-    leftImage: "images/kampf1.jpeg",
-    rightImage: "images/z1.jpg",
+    leftImage1: "images/kampf1.jpeg",
+  leftImage2: "images/kampf2.jpeg",
+  rightImage1: "images/z1.jpg",
+  rightImage2: "images/z2.jpg",
   },
 
   // ── DANNENMANN 2: 2×2 Grid ───────────────────────────────────
